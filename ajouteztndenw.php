@@ -1,7 +1,7 @@
 <?php
 try {
     $connexion = new PDO('mysql:host=localhost;dbname=taratanin', 'root', '');
-    echo 'connexion a la base de donnee etablie ';
+    // echo 'connexion a la base de donnee etablie ';
 } catch (PDOException $th) {
     $th->getMessage();
 }
@@ -36,8 +36,9 @@ if(isset($_POST['passe'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/assets/css/Ajoutertondenw.css">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/Ajoutertondenw.css">
     <title>Ajouter Tondenw</title>
 </head>
 <body>
@@ -54,7 +55,7 @@ if(isset($_POST['passe'])){
             height: 340px;
             margin: 360px;
             margin-top: 0px;
-            background-image: url('/assets/images/tontine.png'); 
+            background-image: url('assets/images/tontine.png'); 
             background-size: cover;
             background-repeat: no-repeat;
 }

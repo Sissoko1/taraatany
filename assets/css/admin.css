@@ -1,0 +1,65 @@
+
+body{
+    background-image: url('../images/tontine.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+
+}
+
+.logo{
+    width: 270px;
+    margin-top: -30px;
+}
+
+.collapse{
+    margin-left: 65px;
+    margin-top: -15px;
+    background-color: #2425CA;
+    padding: 30px;
+    border-radius: 6px;
+   
+
+}
+
+.collapse .nav-item .nav-link{
+    color: #fff;
+    margin-left: 130px;
+    text-transform: uppercase;
+   
+}
+
+.collapse .nav-item .nav-link:hover{
+    color: #fff;
+}
+h3{
+    text-align: center;
+    font-size: 30px;
+}
+
+#typed{
+    color: #5A1D2C;
+    font-size: 20px;
+}
+footer{
+    margin-top: 400px;
+}
+
+#facebook,#instagram,#tiktok{
+    width: 50px;
+    
+}
+
+#facebook{
+    margin-left: 40px;
+}
+
+#instagram{
+    margin-left: 500px;
+}
+
+
+#tiktok{
+    margin-left: 550px;
+}

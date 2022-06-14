@@ -1,10 +1,6 @@
 <?php
-try {
-    $connexion = new PDO('mysql:host=localhost;dbname=taratanin', 'root', '');
-    // echo 'connexion a la base de donnee etablie ';
-} catch (PDOException $th) {
-    $th->getMessage();
-}
+require_once('conn.php');
+
 if(isset($_POST['passe'])){
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['email']) AND !empty($_POST['password']) ); {
        $nom = htmlspecialchars($_POST['nom']);

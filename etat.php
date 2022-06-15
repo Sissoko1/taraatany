@@ -12,7 +12,7 @@
     <img class="logo" src="/assets/image/logo.png" alt="">
     <h1>Etat</h1>
     <div class="d-grid gap-2 col-6 mx-auto super">
-        <button class=" btn-success bouton" type="button">payé</button>
+        <a href="listepaiement.php" class="btn btn-success d-block ">payé</a>
         <button class=" btn-danger bouton" type="button">impayé</button>
         <button class=" btn-primary bouton" type="button">en cours</button>
     </div>

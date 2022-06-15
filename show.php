@@ -2,20 +2,20 @@
 session_start();
 require_once('conn.php');
 
-if($_GET['id_tonden'] && !empty($_GET['id_tonden'])){
+if($_GET['id'] && !empty($_GET['id'])){
 
-    $id_tonden = strip_tags($_GET['id_tonden']);
+    $id = strip_tags($_GET['id']);
 
-    $sql = 'SELECT * FROM tondenw WHERE id_tonden= :id_tonden';
+    $sql = 'SELECT * FROM utilisateurs WHERE id= :id';
 
-    $data = $connexion->prepare($sql);
+    $data = $pdo->prepare($sql);
 
-    $data->bindValue(':id_tonden',$id_tonden,PDO::PARAM_INT);
+    $data->bindValue(':id',$id,PDO::PARAM_INT);
 
     $data->execute();
-    $tonden = $data->fetch();
+    $utilisateur = $data->fetch();
 
-    if(!$tonden){
+    if(!$utilisateur){
         header('Location:liste.php');
         $_SESSION['message'] = "tonden non trouvé";
 
@@ -47,10 +47,11 @@ if($_GET['id_tonden'] && !empty($_GET['id_tonden'])){
     </style>
     <main class="container justify-content-center">
         <div class="col-md-12 mt-5">
-            <h1 class="text-primary text-capitalize">tonden <?=$tonden['id_tonden'] ?> <?=$tonden['nom'] ?>  </h1>
-            <p>Nom : <?=$tonden['nom'] ?> </p>
-            <p>Prenom : <?=$tonden['prenom'] ?> </p>
-            <p>Email : <?=$tonden['email'] ?> </p>
+            <h1 class="text-primary text-capitalize">utilisateurs <?=$utilisateur['id'] ?> <?=$utilisateur['roles'] ?>  </h1>
+            <p>role : <?=$utilisateur['roles'] ?> </p>
+            <p>username : <?=$utilisateur['username'] ?> </p>
+            <p>password : <?=$utilisateur['passwords'] ?> </p>
+            <p>nom : <?=$utilisateur['nom'] ?> </p>
             <a href="liste.php" class="btn btn-primary">Retour</a>
         </div>
     </main>

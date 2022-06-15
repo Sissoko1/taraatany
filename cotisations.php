@@ -41,7 +41,7 @@
             <?php
        include("conn.php");
    $req= "SELECT * FROM cotisations";
-        $ps=$connexion->prepare($req);
+        $ps=$pdo->prepare($req);
          $ps->execute();
 
 ?>
@@ -51,7 +51,7 @@
     <td><?php echo ($et['id_cotisations'])?></td>
     <td><?php echo ($et['montant_cotisations'])?></td>
     <td><?php echo ($et['date_cotisations'])?></td>
-    <td><?php echo ($et['id_pariba'])?></td>
+    <td><?php echo ($et['id'])?></td>
     <td><?php echo ($et['id_tondenw'])?></td>
 <tr>
 <?php } ?> 

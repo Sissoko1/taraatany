@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+require_once('conn.php');
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +18,14 @@
     <title>payer cotisation</title>
 </head>
 <body>
+    <style>
+      body{
+        background-image: url('/assets/images/tontine.png');
+        background-repeat: no-repeat;
+         background-size: cover;
+}
+    </style>
+
     <img class="logo" src="assets/images/logo.png" alt="">
     <h1>payer cotisation</h1>
     <div class="container">
@@ -18,7 +35,7 @@
                 <p>payer sur ce numéro: 66 66 66 66.</p>
             </div>
             <div class="col-6">
-                <img class="img" src="assets/images/Orange-Money-logo.png" alt="">
+                <img class="img" src="assets/images/Orange-Money.png" alt="">
                 <p>payer sur ce numéro: 66 66 66 66.</p>
             </div>
         </div>    

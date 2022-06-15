@@ -2,28 +2,28 @@
 session_start();
 require_once('conn.php');
 
-if($_GET['id_tonden'] && !empty($_GET['id_tonden'])){
+if($_GET['id'] && !empty($_GET['id'])){
 
-    $id_tonden = strip_tags($_GET['id_tonden']);
+    $id_tonden = strip_tags($_GET['id']);
 
-    $sql = 'SELECT * FROM tondenw WHERE id_tonden= :id_tonden';
+    $sql = 'SELECT * FROM utilisateurs WHERE id= :id';
 
-    $data = $connexion->prepare($sql);
+    $data = $pdo->prepare($sql);
 
-    $data->bindValue(':id_tonden',$id_tonden,PDO::PARAM_INT);
+    $data->bindValue(':id',$id_tonden,PDO::PARAM_INT);
 
     $data->execute();
-    $tonden = $data->fetch();
+    $utilisateur = $data->fetch();
 
-    if($tonden){
+    if($utilisateur){
         
-       $id_tonden = strip_tags($_GET['id_tonden']);
+       $id = strip_tags($_GET['id']);
 
-        $sql = 'DELETE FROM tondenw  WHERE id_tonden=:id_tonden';
+        $sql = 'DELETE FROM utilisateurs  WHERE id=:id';
 
-        $data = $connexion->prepare($sql);
+        $data = $pdo->prepare($sql);
 
-        $data->bindValue(':id_tonden',$id_tonden,PDO::PARAM_INT);
+        $data->bindValue(':id',$id,PDO::PARAM_INT);
        
         
 

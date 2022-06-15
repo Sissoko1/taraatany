@@ -1,10 +1,6 @@
 <?php
-try {
-    $connexion = new PDO('mysql:host=localhost;dbname=taratanin', 'root', '');
-    echo 'connexion a la base de donnee etablie ';
-} catch (PDOException $th) {
-    $th->getMessage();
-}
+require_once('conn.php');
+
 if(isset($_POST['passe'])){
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['email']) AND !empty($_POST['password']) ); {
        $nom = htmlspecialchars($_POST['nom']);
@@ -36,6 +32,7 @@ if(isset($_POST['passe'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/Ajoutertondenw.css">
     <title>Ajouter Tondenw</title>

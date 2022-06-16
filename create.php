@@ -1,23 +1,29 @@
 <?php
 session_start();
 require_once('conn.php');
+//$connexion = mysqli_connect('localhost','root','');
+//$db = mysqli_select_db($connexion,'taratanin');
 
-if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email'])){
+if(!empty($_POST['role']) && !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['nom'])){
 
+    $role = strip_tags($_POST['role']);
+    $username = strip_tags($_POST['username']);
+    $password = strip_tags(sha1($_POST['password']));
     $nom = strip_tags($_POST['nom']);
-    $prenom = strip_tags($_POST['prenom']);
-    $email = strip_tags($_POST['email']);
 
-    $sql = 'INSERT INTO tondenw(nom,prenom,email) VALUES(:nom,:prenom,:email)';
+    $sql= $pdo->prepare ("INSERT INTO utilisateurs(roles ,username,passwords ,nom) VALUES (?,?,?,?)");
+    $params=array($role,$username,$password,$nom);
     
-    $tonden = $connexion->prepare($sql);
-    $tonden->bindValue(':nom',$nom,PDO::PARAM_STR);
-    $tonden->bindValue(':prenom',$prenom,PDO::PARAM_STR);
-    $tonden->bindValue(':email',$email,PDO::PARAM_STR);
+    
+    // $utilisateur = $connexion->prepare($sql);
+    // $utilisateur->value(':roles',$role,PDO::PARAM_STR);
+    // $utilisateur->bindValue(':username',$username,PDO::PARAM_STR);
+    // $utilisateur->bindValue(':passwords',$password,PDO::PARAM_STR);
+    // $utilisateur->bindValue(':nom',$nom,PDO::PARAM_STR);
 
-    $tonden->execute();
+    $sql->execute($params);
     
-    $_SESSION['message'] = "ce tonden a ete ajouter a la BD ";
+    $_SESSION['message'] = "ce tonden a été ajouté à la BD ";
     header('Location:liste.php');
 
 }else{
@@ -35,7 +41,7 @@ if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
-    <title>Creer</title>
+    <title>Ajout toden</title>
 </head>
 <body>
     <style>
@@ -43,40 +49,42 @@ if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']))
             background-image:url('assets/images/tontine.png');
             background-size:cover;
         }
-        form{
-            margin-left:300px;
-        }
+
         h1{
-            margin-left: 300px;
-            color:#2435CA;
+            margin-right:50px;
         }
         
+        
+        
     </style>
-    <main class="container mt-5">
-        <div class="col-md-12">
-            <h1>Ajouter tondenw</h1>
-            <div class="col-md-6">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nom</label>
-                        <input type="text" name="nom" id="name" class="form-control">
-                    </div><br>
-                    <div class="form-group">
-                        <label for="price">Prenom</label>
-                        <input type="text" name="prenom" id="price" class="form-control">
-                    </div> <br>
-                    <div class="form-group">
-                        <label for="stock">email</label>
-                        <input type="text" name="email" id="stock" class="form-control">
-                    </div><br>
+        <div class="container d-flex justify-content-center align-items-center" style="min-height:100vh;">
+        <h1 class="text-primary text-center text-uppercase">Ajouter Tonden</h1>
+        <form action="" method="POST" class="border shadow rounded p-3" style="width: 450px;">
+                    <div class="mb-3">
+                        <label for="name">Nom d'utilisateur</label>
+                        <input type="text" name="username" id="username" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" id="password" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nom">Nom</label>
+                        <input type="text" name="nom" id="nom" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="role">Type d'utilisateur</label>
+                    </div>
+                    <select name="role" id="" class="form-select mb-3">
+                        <option value="pariba">Pariba</option>
+                        <option selected value="tonden">Tonden</option>
+                    </select>
                     <div class="form-group mt-3">
-                        <button type="submit" class="btn btn-primary">Creer</button>
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
                         <a href="liste.php" class="btn btn-danger">Retour</a>
                     </div>
-                </form>
+                </form>       
             </div>
-        </div>
-    </main>
     
 </body>
 </html>

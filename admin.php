@@ -20,16 +20,16 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto ">
         <li class="nav-item">
-          <a class="nav-link " id="0" href="#">pariba</a>
+          <a class="nav-link " id="0" href="connexion.php">pariba</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="1" href="#">tondenw</a>
+          <a class="nav-link" id="1" href="liste.php">tondenw</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="2" href="#">a propos</a>
+          <a class="nav-link" id="2" href="apropos.html">a propos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="3" href="#">contact</a>
+          <a class="nav-link" id="3" href="contact.php">contact</a>
         </li>
       </ul>
     </div>

@@ -2,12 +2,12 @@
 session_start();
 require_once('conn.php');
 
-$sql = 'SELECT * FROM tondenw';
-$data = $connexion->prepare($sql);
+$sql = 'SELECT * FROM utilisateurs';
+$data = $pdo->prepare($sql);
 
 $data->execute();
 
-$tondenw = $data->fetchAll(PDO::FETCH_ASSOC);
+$utilisateurs = $data->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -57,28 +57,29 @@ $tondenw = $data->fetchAll(PDO::FETCH_ASSOC);
                 
                 
                 ?>
-                <h1 class="text-primary">Liste tonden</h1>
-                <a href="create.php" class="btn btn-primary">Ajouter tondenw</a>
-                <table class="table mt-3 bg-#FEF9F9">
-                    <thead>
+                <a href="pagepariba.php" class="btn btn-primary" style="float:right;">Retour</a>
+                <h1 class="text-primary text-uppercase">Liste tonden</h1>
+                <a href="create.php"  class="btn btn-primary">Ajouter tondenw</a>
+                <table class="table mt-3" border=1>
+                    <thead style="background-color:#5A1D2C; color:#fff;">
                         <th>ID</th>
-                        <th>nom</th>
-                        <th>prenom</th>
-                        <th>email</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Nom</th>
                         <th>actions</th>
                     </thead>
 
                     <tbody>
-                        <?php foreach ($tondenw as $tonden ) { ?>
+                        <?php foreach ($utilisateurs as $utilisateur ) { ?>
                         <tr>
-                            <td><?=$tonden['id_tonden']?></td>
-                            <td><?=$tonden['nom']?></td>
-                            <td><?=$tonden['prenom']?></td>
-                            <td><?=$tonden['email']?></td>
+                            <td><?=$utilisateur['id']?></td>
+                            <td><?=$utilisateur['username']?></td>
+                            <td><?=$utilisateur['roles']?></td>
+                            <td><?=$utilisateur['nom']?></td>
                             <td class='update'>
-                                <a href="show.php?id_tonden=<?=$tonden['id_tonden']?>" class="text-primary"><i class="fa-regular fa-eye"></i></a>
-                                <a href="edit.php?id_tonden=<?=$tonden['id_tonden']?>" class="text-success"><i class="fa-solid fa-pen"></i></a>
-                                <a href="delete.php?id_tonden=<?=$tonden['id_tonden']?>" class="text-danger"><i class="fa-regular fa-trash-can"></i></a>
+                                <a href="show.php?id=<?=$utilisateur['id']?>" class="text-primary m-3"><i class="fa-regular fa-eye"></i></a>
+            
+                                <a href="delete.php?id=<?=$utilisateur['id']?>" class="text-danger"><i class="fa-regular fa-trash-can"></i></a>
                             </td>
                         </tr>
                         <?php }?>

@@ -9,27 +9,34 @@
     <title>créer reunion</title>
 </head>
 <body>
-    <img class="logo" src="/assets/image/logo.png" alt="">
+    <style>
+        
+    </style>
+    <img class="logo" src="assets/images/logo.png" alt="">
     <h1>créer une reunion</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <img class="img" src="assets/image/reunion 1.jpg" alt="">
-                <p>Démarer une reunion</p>
+    <div class="container-fluid">
+
+
+        <div class="row justify-content-center">
+            <div class="col-md-4 align-self-end">
+                <img class="text-center text-uppercase" style="width:150px; heigth: 100px; margin-left:220px;"src="assets/images/reunion 1.jpg" alt="">
+                <a class="btn" style="background-color: #5A1D2C; color: #fff; width:150px; height:50px; margin: right 100px;"href="zomm.html">Démarer</a>
             </div>
-            <div class="col-6">
-                <img class="img" src="assets/image/AJOUTER ME.jpg" alt="">
-                <p>Rejoindre une reunion</p>
+
+            
+            <!-- <div class="col-6">
+                <img class="img" src="assets/images/AJOUTER ME.jpg" alt="">
+                <a href=""><p>Rejoindre une reunion</p></a>
+            </div> -->
+            
+       
+            <div class="col-md-4 align-self-end">
+                <img class="text-center text-uppercase" style="width:130px; heigth: 100px; margin-left:220px;" src="assets/images/calendrier.jpg" alt="">
+                <a class="btn" style="background-color: #5A1D2C; color: #fff;"href="programmerreun.html">Programmer</a> 
             </div>
-        </div>    
-        <div class="row">
-            <div class="col-6">
-                <img class="img" src="assets/image/calendrier.jpg" alt="">
-                <p>Programmer une reunion</p> 
-            </div>
-            <div class="col-6">
-                <img class="img" src="assets/image/icone_deconnex.jpg" alt="">
-                <p>Quitter reunion</p> 
+            <div class="col-md-4 align-self-end">
+                <img class="text-center text-uppercase" style="width:130px; heigth: 100px; margin-left:220px;" src="assets/images/icone_deconnex.jpg" alt="">
+                <a class="btn" style="background-color: #5A1D2C; color: #fff;" href="pagepariba.php">Quitter</a> 
             </div> 
         </div>        
     </div>

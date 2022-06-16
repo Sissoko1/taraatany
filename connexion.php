@@ -1,34 +1,32 @@
 <?php
 session_start();
 require_once 'conn.php';
-$connexion = mysqli_connect('localhost','root','');
-$db = mysqli_select_db($connexion,'taratanin');
+$pdo = mysqli_connect('localhost','root','');
+$db = mysqli_select_db($pdo,'taratanin');
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $user = $_POST['username'];
-    $password = $_POST['password'];
-    $role = $_POST['role'];
+    $password = $_POST['passwords'];
+    $role = $_POST['roles'];
+   
+    $sql= "SELECT username, passwords, roles FROM utilisateurs WHERE username ='".$user."' AND roles= '".$role."' AND passwords='".$password."'";
 
-    $sql = "SELECT username, password,role FROM utilisateurs WHERE username ='".$user."' AND role= '".$role."' AND password='".$password."'";
-    $result = mysqli_query($connexion,$sql);
+    // $sql = "SELECT * FROM utilisateurs WHERE username ='.$user.' AND roles= '.$role.' AND passwords='.$password.'";
+    $result = mysqli_query($pdo,$sql);
     $row = mysqli_fetch_array($result);
-
-
-    $_SESSION['username'] = $user;
-    if($row['role']=="pariba"){
+    // $result = $sql->execute();
+    $_SESSION["username"] = $user;
+    if($row["roles"]=="pariba"){
         header('Location:pagepariba.php');
-    }elseif ($row['role']=='tonden') {
-        header('Location:connextonden.php');
+    }elseif ($row["roles"]=="tonden") {
+        header('Location:pagetonden.html');
     }else{
-        $message = "username or password incorrect";
+        echo "username or password incorrect";
     }
-
-
-
+}else {
+    die("username ou password incorrect");
 }
-
-
 
 ?>
 
@@ -54,12 +52,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Mot de passe</label>
-                <input type="password" name="password" id="password" class="form-control">
+                <input type="password" name="passwords" id="password" class="form-control">
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Type d'utilisateur</label>
             </div>
-            <select name="role" id="" class="form-select mb-3">
+            <select name="roles" id="" class="form-select mb-3">
                 <option value="pariba">Pariba</option>
                 <option selected value="tonden">Tonden</option>
             </select>

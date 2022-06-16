@@ -26,7 +26,7 @@ if($_GET['id_pariba'] && !empty($_GET['id_pariba'])){
             $telephone = strip_tags($_POST['telephone']);
            
 
-        $sql = "UPDATE pariba SET nom=:nom,prenom=:prenom,email=:email,password=:password,adresse=:adresse,telephone=:telephone WHERE id_pariba=:id_pariba";
+        $sql = "UPDATE pariba SET nom=:nom,prenom=:prenom,email=:email,passwords=:passwords,adresse=:adresse,telephone=:telephone WHERE id_pariba=:id_pariba";
 
         $data = $pdo->prepare($sql);
 
@@ -34,10 +34,10 @@ if($_GET['id_pariba'] && !empty($_GET['id_pariba'])){
         // $data->bindValue(':username',$username,PDO::PARAM_STR);
         // $data->bindValue(':nom',$nom,PDO::PARAM_STR);
         
-
+    
         $data->execute();
 
-        header('Location:pagepariba.php');
+        header('Location:pagetonden.html');
         $_SESSION['message'] = "ce tonden a bien été modifié";
         }
         

@@ -59,8 +59,8 @@ $utilisateurs = $data->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <h1 class="text-primary text-uppercase">Liste tonden</h1>
                 <a href="create.php"  class="btn btn-primary">Ajouter tondenw</a>
-                <table class="table mt-3 bg-#FEF9F9">
-                    <thead>
+                <table class="table mt-3" border=1>
+                    <thead style="background-color:#5A1D2C; color:#fff;">
                         <th>ID</th>
                         <th>Username</th>
                         <th>Role</th>
@@ -76,7 +76,7 @@ $utilisateurs = $data->fetchAll(PDO::FETCH_ASSOC);
                             <td><?=$utilisateur['roles']?></td>
                             <td><?=$utilisateur['nom']?></td>
                             <td class='update'>
-                                <a href="show.php?id=<?=$utilisateur['id']?>" class="text-primary"><i class="fa-regular fa-eye"></i></a>
+                                <a href="show.php?id=<?=$utilisateur['id']?>" class="text-primary m-3"><i class="fa-regular fa-eye"></i></a>
             
                                 <a href="delete.php?id=<?=$utilisateur['id']?>" class="text-danger"><i class="fa-regular fa-trash-can"></i></a>
                             </td>

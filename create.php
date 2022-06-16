@@ -23,7 +23,7 @@ if(!empty($_POST['role']) && !empty($_POST['username']) && !empty($_POST['passwo
 
     $sql->execute($params);
     
-    $_SESSION['message'] = "ce tonden a ete ajouter a la BD ";
+    $_SESSION['message'] = "ce tonden a été ajouté à la BD ";
     header('Location:liste.php');
 
 }else{

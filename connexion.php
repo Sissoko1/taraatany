@@ -1,26 +1,42 @@
 <?php
 session_start();
 require_once 'conn.php';
+
 $pdo = mysqli_connect('localhost','root','');
 $db = mysqli_select_db($pdo,'taratanin');
+
+$connexion = mysqli_connect('localhost','root','');
+$db = mysqli_select_db($connexion,'taratanin');
+
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $user = $_POST['username'];
+
     $password = $_POST['passwords'];
     $role = $_POST['roles'];
    
     $sql= "SELECT username, passwords, roles FROM utilisateurs WHERE username ='".$user."' AND roles= '".$role."' AND passwords='".$password."'";
 
     // $sql = "SELECT * FROM utilisateurs WHERE username ='.$user.' AND roles= '.$role.' AND passwords='.$password.'";
+
+    $password = $_POST['password'];
+    $roles = $_POST['role'];
+
+    $sql = "SELECT username, passwords,roles FROM utilisateurs WHERE username ='".$user."' AND roles= '".$roles."' AND passwords='".$password."'";
     $result = mysqli_query($pdo,$sql);
     $row = mysqli_fetch_array($result);
     // $result = $sql->execute();
     $_SESSION["username"] = $user;
     if($row["roles"]=="pariba"){
         header('Location:pagepariba.php');
+
     }elseif ($row["roles"]=="tonden") {
         header('Location:pagetonden.html');
+
+    }elseif ($row['role']=='tonden') {
+        header('Location:pagepariba.php');
+
     }else{
         echo "username or password incorrect";
     }

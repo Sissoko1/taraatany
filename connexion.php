@@ -40,8 +40,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }else{
         echo "username or password incorrect";
     }
-}else {
-    die("username ou password incorrect");
 }
 
 ?>
@@ -60,7 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 </head>
 <body style="background-image:url('assets/images/tontine.png'); background-repeat:no-repeat; background-size:cover;">
     <div class="container d-flex justify-content-center align-items-center"style="min-height:100vh;">
-    <h1 class="text-center text-uppercase" style="color:#2435CA;">Page de connexion</h1>
+    <h1 class="text-center text-uppercase" style="color:#2435CA; margin-right:50px;">Page de connexion</h1>
         <form action="" method="POST" class="border shadow p-3 rounded" style="width: 450px;">
             <div class="mb-3">
                 <label for="" class="form-label">Nom d'utilisateur</label>

@@ -1,0 +1,49 @@
+body{
+    background-image: url('/assets/images/tontine.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.retour{
+    float: right;
+}
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    color: blue;
+}
+
+.payer{
+    margin-left: 400px;
+}
+input{
+    width: 300px;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 5px;
+}
+label{
+    text-transform: uppercase;
+}
+.bouton{
+    margin-top: 20px;
+    margin-left: 150px;
+}
+.id{
+    margin-left: 88px;
+}
+.nom{
+    margin-left: 65px;
+}
+.prenom{
+    margin-left: 38px;
+}
+.montant{
+    margin-left: 28px;
+}
+.date{
+    margin-left: 70px;
+}
+#annuler{
+    margin-left: 100px;
+}

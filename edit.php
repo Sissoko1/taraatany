@@ -2,11 +2,11 @@
 session_start();
 require_once('conn.php');
 
-if($_GET['id_pariba'] && !empty($_GET['id_pariba'])){
+if($_GET['id'] && !empty($_GET['id'])){
 
-    $id_pariba = strip_tags($_GET['id_pariba']);
+    $id_pariba = strip_tags($_GET['id']);
 
-    $sql = 'SELECT * FROM pariba WHERE id_pariba= :id_pariba';
+    $sql = 'SELECT * FROM utilisateurs WHERE id= :id';
 
     $data =  $pdo->prepare($sql);
 
@@ -17,16 +17,15 @@ if($_GET['id_pariba'] && !empty($_GET['id_pariba'])){
     $pariba = $data->fetch();
 
     if($pariba){
-        if(!empty($_POST['nom']) && !empty($_POST['prenom'])  && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['adresse']) && !empty($_POST['telephone'])){
+        if(!empty($_POST['roles']) && !empty($_POST['username'])  && !empty($_POST['nom']) && !empty($_POST['passwords'])){
+            $role = strip_tags($_POST['roles']);
+            $username = strip_tags($_POST['username']);
             $nom = strip_tags($_POST['nom']);
-            $prenom = strip_tags($_POST['prenom']);
-            $email = strip_tags($_POST['email']);
-            $passwors = strip_tags($_POST['password']);
-            $adresse = strip_tags($_POST['adresse']);
-            $telephone = strip_tags($_POST['telephone']);
+            $passwords = strip_tags($_POST['passwords']);
+            
            
 
-        $sql = "UPDATE pariba SET nom=:nom,prenom=:prenom,email=:email,passwords=:passwords,adresse=:adresse,telephone=:telephone WHERE id_pariba=:id_pariba";
+        $sql = "UPDATE utilisateurs SET roles=:roles,username=:username,nom=:nom,passwords=:passwords WHERE id=:id";
 
         $data = $pdo->prepare($sql);
 

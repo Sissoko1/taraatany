@@ -5,8 +5,8 @@ require_once 'conn.php';
 $pdo = mysqli_connect('localhost','root','');
 $db = mysqli_select_db($pdo,'taratanin');
 
-$connexion = mysqli_connect('localhost','root','');
-$db = mysqli_select_db($connexion,'taratanin');
+//$connexion = mysqli_connect('localhost','root','');
+//$db = mysqli_select_db($connexion,'taratanin');
 
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -18,23 +18,21 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
    
     $sql= "SELECT username, passwords, roles FROM utilisateurs WHERE username ='".$user."' AND roles= '".$role."' AND passwords='".$password."'";
 
-    // $sql = "SELECT * FROM utilisateurs WHERE username ='.$user.' AND roles= '.$role.' AND passwords='.$password.'";
+    //$sql = "SELECT * FROM utilisateurs WHERE username ='.$user.' AND roles= '.$role.' AND passwords='.$password.'";
 
-    $password = $_POST['password'];
-    $roles = $_POST['role'];
+    //$password = $_POST['password'];
+    //$roles = $_POST['role'];
 
-    $sql = "SELECT username, passwords,roles FROM utilisateurs WHERE username ='".$user."' AND roles= '".$roles."' AND passwords='".$password."'";
+    //$sql = "SELECT username, passwords,roles FROM utilisateurs WHERE username ='".$user."' AND roles= '".$roles."' AND passwords='".$password."'";
     $result = mysqli_query($pdo,$sql);
     $row = mysqli_fetch_array($result);
     // $result = $sql->execute();
-    $_SESSION["username"] = $user;
+    //$_SESSION["username"] = $user;
     if($row["roles"]=="pariba"){
         header('Location:pagepariba.php');
 
-    }elseif ($row["roles"]=="tonden") {
-        header('Location:pagetonden.html');
-
-    }elseif ($row['role']=='tonden') {
+    }
+    elseif ($row['role']=='tonden') {
         header('Location:pagepariba.php');
 
     }else{
@@ -53,12 +51,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
-    <title>page de LOGIN</title>
+    <title>page de connexion</title>
 </head>
 <body style="background-image:url('assets/images/tontine.png'); background-repeat:no-repeat; background-size:cover;">
+        <a href="admin.php" class="btn btn-primary mt-5" style="float:right; margin-right:10px;">Retour</a>
+        
     <div class="container d-flex justify-content-center align-items-center"style="min-height:100vh;">
-    <h1 class="text-center text-uppercase" style="color:#2435CA; margin-right:50px;">Page de connexion</h1>
+    <a href="motdepasseoublier.php" class="text-center" style="margin-top:300px; margin-left:100px; color:#2435CA; text-decoration:none;">Mot de passe oublié</a>
+    
+    <h1 class="text-center" style="color:#2435CA; margin-right:50px;">Page de connexion</h1>
+    
         <form action="" method="POST" class="border shadow p-3 rounded" style="width: 450px;">
             <div class="mb-3">
                 <label for="" class="form-label">Nom d'utilisateur</label>
@@ -77,7 +81,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             </select>
             <button type="submit" class="btn btn-primary">Connexion</button>
         </form>
-
+        
     </div>
+    
 </body>
 </html>

@@ -58,7 +58,7 @@ $utilisateurs = $data->fetchAll(PDO::FETCH_ASSOC);
                 
                 ?>
                 <a href="pagepariba.php" class="btn btn-primary" style="float:right;">Retour</a>
-                <h1 class="text-primary text-uppercase">Liste tonden</h1>
+                <h1 style="color:#2435CA;">Liste tondenw</h1>
                 <a href="create.php"  class="btn btn-primary">Ajouter tondenw</a>
                 <table class="table mt-3" border=1>
                     <thead style="background-color:#5A1D2C; color:#fff;">

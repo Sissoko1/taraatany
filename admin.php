@@ -23,7 +23,7 @@
           <a class="nav-link " id="0" href="connexion.php">pariba</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="1" href="liste.php">tondenw</a>
+          <a class="nav-link" id="1" href="connexion.php">tondenw</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" id="2" href="apropos.html">a propos</a>
@@ -35,7 +35,7 @@
     </div>
   </div>
 </nav>
-<h3>Bienvenue sur Taratanin: <span id="typed"></span></h3>
+<h3 class="text-primary ">Bienvenue sur Taratanin: <span id="typed"></span></h3>
 
 
 

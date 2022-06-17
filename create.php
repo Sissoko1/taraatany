@@ -41,7 +41,7 @@ if(!empty($_POST['role']) && !empty($_POST['username']) && !empty($_POST['passwo
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
-    <title>Ajout toden</title>
+    <title>Ajouter toden</title>
 </head>
 <body>
     <style>
@@ -58,7 +58,7 @@ if(!empty($_POST['role']) && !empty($_POST['username']) && !empty($_POST['passwo
         
     </style>
         <div class="container d-flex justify-content-center align-items-center" style="min-height:100vh;">
-        <h1 class="text-primary text-center text-uppercase">Ajouter Tonden</h1>
+        <h1 class="text-center" style="color:#2435CA;">Ajouter Tonden</h1>
         <form action="" method="POST" class="border shadow rounded p-3" style="width: 450px;">
                     <div class="mb-3">
                         <label for="name">Nom d'utilisateur</label>

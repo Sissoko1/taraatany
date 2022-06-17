@@ -20,10 +20,10 @@ session_start();
             <a href="#" id="logo"><img src="assets/images/logo.png" width="100px;" height="100px;"></a>
             <nav class="navbar">
                 <ul>
-                <li><a href="">Pariba</a></li>
-                <li> <a href="liste.php">Tondenw</a></li>
-                <li><a href="edit.php">Modifier informations</a></li>
-                <li><a href="logout.php">Deconnexion</a></li>
+                <li><a href="connexion.php" class="text-uppercase">Pariba</a></li>
+                <li> <a href="liste.php" class="text-uppercase">Tondenw</a></li>
+                <li><a href="edit.php" class="text-uppercase">Modifier informations</a></li>
+                <li><a href="logout.php"class="text-uppercase">Deconnexion</a></li>
                 </ul>
             </nav>
             <h2>BIENVENUE SUR LA PAGE D'ADMINISTRATION</h2>
